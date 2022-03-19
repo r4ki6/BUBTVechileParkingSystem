@@ -1,0 +1,46 @@
+<html><head>
+  <SCRIPT src="http://java.com/js/dtjava.js"></SCRIPT>
+<script>
+    function launchApplication(jnlpfile) {
+        dtjava.launch(            {
+                url : 'parkingSystem.jnlp'
+            },
+            {
+                javafx : '8.0+'
+            },
+            {}
+        );
+        return false;
+    }
+</script>
+
+<script>
+    function javafxEmbedLoginFrom() {
+        dtjava.embed(
+            {
+                id : 'LoginFrom',
+                toolkit : 'swing',
+                url : 'parkingSystem_browser.jnlp',
+                placeholder : 'javafx-app-placeholder',
+                width : '0',
+                height : '0'
+            },
+            {
+                javafx : '8.0+'
+            },
+            {
+                onGetSplash : function() {}
+            }
+        );
+    }
+    <!-- Embed FX application into web page once page is loaded -->
+    dtjava.addOnloadCallback(javafxEmbedLoginFrom);
+</script>
+
+</head><body>
+<h2>Test page for <b>parkingSystem</b></h2>
+  <b>Webstart:</b> <a href='parkingSystem.jnlp' onclick="return launchApplication('parkingSystem.jnlp');">click to launch this app as webstart</a><br><hr><br>
+
+  <!-- Applet will be inserted here -->
+  <div id='javafx-app-placeholder'></div>
+</body></html>
